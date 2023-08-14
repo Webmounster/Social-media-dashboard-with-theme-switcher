@@ -1,0 +1,133 @@
+@use 'variables' as *;
+@mixin card($borde) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: $LightGrayishBlue;
+    border-radius: 8px;
+    height: 217px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 2s ease;
+
+    &:hover {
+        background-color: hsl(35, 77%, 83%);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border: 2px solid $borde;
+    }
+
+    &:nth-child(3)::before {
+        border-image-source: linear-gradient(45deg, rgb(253, 196, 104), rgb(223, 73, 150));
+        border-image-slice: 1;
+        border-style: solid;
+        border-width: 2px;
+    }
+
+    &.giro {
+        transform: rotateY(360deg);
+    }
+
+    .card__top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &--text {
+            font-weight: $fw400;
+            font-size: $fs;
+        }
+    }
+
+    .card__middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &--number {
+            font-size: 3rem;
+            font-weight: $fw700;
+            color: $VeryDarkBlue;
+            transition: all 2s ease;
+        }
+
+        &--text {
+            font-size: 0.8rem;
+            letter-spacing: 0.2rem;
+            color: $DarkGrayishBlue;
+            font-weight: $fw400;
+            text-transform: uppercase;
+        }
+    }
+
+    .card__bottom {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        font-weight: $fw700;
+    }
+}
+
+@mixin minicard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 125px;
+    background-color: $LightGrayishBlue;
+    border-radius: 5px;
+    padding: 0 25px;
+    cursor: pointer;
+    transition: all 2s ease;
+
+    &:hover {
+        background-color: hsl(35, 77%, 83%);
+    }
+
+    @media #{$desktop} {
+        height: 125px;
+    }
+
+    &.giro {
+        transform: rotateY(360deg);
+    }
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &--text {
+            font-size: $fs;
+            font-weight: $fw700;
+            color: $DarkGrayishBlue;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        &--number {
+            font-size: 2.2rem;
+            font-weight: $fw700;
+            color: $VeryDarkBlue;
+            transition: all 2s ease;
+        }
+
+        &--porcentage {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    }
+}

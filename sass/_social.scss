@@ -1,0 +1,46 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.social {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+
+    @media #{$tablet} {
+        grid-template-columns: repeat(2, minmax(auto, 1fr));
+    }
+    @media #{$laptops} {
+        grid-template-columns: repeat(2, minmax(auto, 1fr));
+    }
+    @media #{$desktop} {
+        grid-template-columns: repeat(4, minmax(auto, 1fr));
+        margin-bottom: 47px;
+    }
+}
+.facebook {
+    @include card($Facebook);
+}
+
+.twitter {
+    @include card($Twitter);
+}
+
+.instagram {
+    @include card($Instagram);
+    // border-top: 4px solid linear-gradient(45deg, #fdc468, #df4996);
+}
+
+.youtube {
+    @include card($YouTube);
+}
+
+.gradient {
+    border-image-source: linear-gradient(45deg, rgb(253, 196, 104), rgb(223, 73, 150));
+    border-image-slice: 1;
+    border-style: solid;
+    border-width: 4px 0 0 0;
+
+    // border-width: 4px;
+    // border-top: 4px;
+}

@@ -1,0 +1,90 @@
+@use 'reset';
+@use 'variables' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $ff;
+    font-weight: $fw400;
+    color: $DarkGrayishBlue;
+    padding: 40px 25px;
+    background-color: $White;
+    // transition: all 2s ease;
+
+    @media #{$tablet} {
+        padding: 40px 25px;
+    }
+    @media #{$laptops} {
+        padding: 40px 80px;
+    }
+    @media #{$desktop} {
+        padding: 40px 160px;
+    }
+
+    &.dark {
+        background-color: $Dark-VeryDarkBlue;
+        color: $Dark-White;
+
+        .toggle {
+            label {
+                background: linear-gradient(45deg, rgb(55, 143, 230), rgb(62, 218, 130));
+
+                &::before {
+                    left: 25px;
+                    background-color: $Dark-VeryDarkBlue;
+                }
+            }
+        }
+
+        h1 {
+            color: $Dark-White;
+        }
+
+        .card {
+            background-color: $Dark-DarkDesaturatedBlue;
+            &__middle {
+                &--number {
+                    color: $Dark-White;
+                }
+            }
+
+            &:hover {
+                background-color: hsl(229, 25%, 37%);
+            }
+        }
+
+        .miniCard {
+            background-color: $Dark-DarkDesaturatedBlue;
+
+            &__bottom {
+                &--number {
+                    color: $Dark-White;
+                }
+            }
+
+            &:hover {
+                background-color: hsl(229, 25%, 37%);
+            }
+        }
+    }
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: $fw700;
+    margin-bottom: 25px;
+}
+
+.red {
+    color: $BrightRed;
+    font-size: 0.8em;
+}
+
+.green {
+    color: $LimeGreen;
+    font-size: 0.8em;
+}

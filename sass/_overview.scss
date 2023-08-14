@@ -1,0 +1,22 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+.overview {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+
+    @media #{$tablet} {
+        grid-template-columns: repeat(2, minmax(auto, 1fr));
+    }
+    @media #{$laptops} {
+        grid-template-columns: repeat(2, minmax(auto, 1fr));
+    }
+    @media #{$desktop} {
+        grid-template-columns: repeat(4, minmax(auto, 1fr));
+    }
+
+    .miniCard {
+        @include minicard;
+    }
+}
